@@ -2,7 +2,7 @@ const axios = require('axios')
 const { URL_ID, URL_ID2 } = require('../../utils/constants')
 
 const getApiId = async (id) => {
-    const apiWeb = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=4786cb7da9594b549068c4f4504fdf6f`);
+    const apiWeb = await axios.get(URL_ID + id + URL_ID2 );
 
     const e = apiWeb.data
     const obj = {
