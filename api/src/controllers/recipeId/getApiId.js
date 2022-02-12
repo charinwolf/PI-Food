@@ -4,9 +4,10 @@ const { URL_ID, URL_ID2 } = require('../../utils/constants')
 const getApiId = async (id) => {
     const apiWeb = await axios.get(URL_ID + id + URL_ID2 );
 
-    const e = apiWeb.data
-    const obj = {
-      
+    let apiData = apiWeb.data
+    apiData = [apiData]
+    const apiId = await apiData.map((e) => {
+        return {
             id: e.id,
             name: e.title,
             summary: e.summary,
@@ -14,10 +15,11 @@ const getApiId = async (id) => {
             healthScore: e.healthScore,
             instructions: e.analyzedInstructions.map(e => e.steps.map(e => e.step)),
             image: e.image, 
+            diets: e.diets,
             createdInDb: false,
         }
-    
-    return obj; 
+    })
+    return apiId; 
 
 }
 

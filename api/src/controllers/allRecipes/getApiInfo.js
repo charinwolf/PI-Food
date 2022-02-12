@@ -13,6 +13,7 @@ const getApiInfo = async () => {
             healthScore: e.healthScore,
             instructions: e.analyzedInstructions.map(e => e.steps.map(e => e.step)),
             image: e.image, 
+            diets: e.diets,
             createdInDb: false,
         }
     })

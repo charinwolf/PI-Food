@@ -15,7 +15,7 @@ const getRecipeByName = async (req, res) => {
             else {
                 return res.send('No Recipe')
             }
-        }else res.send('Escribe un nombre de una receta')
+        }else res.send('Please introduce a valid recipe')
 }
 
 module.exports = getRecipeByName

@@ -2,17 +2,17 @@ const { Recipe, Diet } = require('../../db')
 
 const getDbId = async (id) => {
     try {
-        const getId = await Recipe.findByPk(id, {
-            include: {
+        if (id.length === 36) {
+            const getId = await Recipe.findOne({
+              where: {
+                id: id,
+              },
+              include: {
                 model: Diet,
-                attributes: ["name"],
-                through: {
-                    attributes: [],
-                }
-            }
-        })
-    return getId
-
+              },
+            });
+            return getId
+        }
     } catch (err) {
         console.log(err)
     }
