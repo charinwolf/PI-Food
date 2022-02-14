@@ -6,10 +6,10 @@ import style from "./LandingPage.module.css"
 function LandingPage(){
 return (
 <div className = {style.landingpage}>
-<div>
-    <h1>Your Recipe!</h1>
+<div className = {style.container}>
+    <h1 className = {style.h1}>Your Recipe!</h1>
     <Link to = {"/home"}>
-    <button className = {style.btn}>Enter</button>
+    <button className = {style.btn}>Enter!</button>
     </Link>
 </div>
 </div>

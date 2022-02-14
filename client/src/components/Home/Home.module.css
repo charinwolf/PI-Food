@@ -1,5 +1,9 @@
-.recipeCard {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.container{
+  background-image: url('https://previews.123rf.com/images/gow27/gow271603/gow27160300069/53766028-doodle-culinaire-et-la-cuisine-%C3%A9criture-des-ingr%C3%A9dients-alimentaires-et-des-outils-de-cuisine-ic%C3%B4ne-.jpg');
+}
+
+.recipesCard{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

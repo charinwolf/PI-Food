@@ -40,7 +40,7 @@ function Filter({ filterOrder}){
 
             <select onChange={(e)=> handleDiet(e)}>
                 <option value = 'none' defaultValue >DIETS</option>
-                <option value="All">ALL</option>
+                <option value="ALL">ALL</option>
                 <option value="gluten free">GLUTEN FREE</option>
                 <option value="dairy free">DAIRY FREE</option>
                 <option value="paleolithic">PALEOLITHIC</option>

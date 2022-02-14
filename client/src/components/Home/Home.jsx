@@ -39,7 +39,7 @@ function Home() {
     }, [dispatch])
 
     return (
-        <div>
+        <div className = {styles.container}>
         <Navbar />
         <Filter filterOrder = {filterOrder} />
             <Paged

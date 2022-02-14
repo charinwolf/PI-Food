@@ -27,7 +27,7 @@
     color: #f2f8f3;
 }
 
-form{
+.form{
     position: relative;
     top: 20px;
     transform: translate(-50%,-50%);
@@ -38,7 +38,7 @@ form{
     padding: 4px;
 }
 
-input{
+.input{
     position: absolute;
     top: 0;
     left: 0;
@@ -68,16 +68,16 @@ input{
     transition: all 1s;
 }
 
-form:hover{
+.form:hover{
     width: 200px;
     cursor: pointer;
 }
 
-form:hover input{
+.form:hover input{
     display: block;
 }
 
-form:hover .fa{
+.form:hover .fa{
     background: #f2f8f3;
     color: white;
 }
