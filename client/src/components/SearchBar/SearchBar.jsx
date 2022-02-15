@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getRecipeByName } from '../../Redux/actions';
 import Card from '../Card/Card';
 import Navbar from '../Navbar/Navbar';
+import styles from '../SearchBar/SearchBar.module.css'
 
 function SearchBar(){
     const dispatch = useDispatch();
@@ -17,9 +18,9 @@ function SearchBar(){
     }, [dispatch, name])   
     
     return (
-        <>
+        <div className = {styles.container}>
         <Navbar />
-        <div>
+        <div className = {styles.recipecard}>
             {searchRecipe && searchRecipe.map((e)=> {
                 return (
                     <Card
@@ -33,7 +34,7 @@ function SearchBar(){
                 )
             })}
         </div>
-   </> 
+   </div> 
     )
 }
 

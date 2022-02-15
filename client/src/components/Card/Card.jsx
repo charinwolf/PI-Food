@@ -11,22 +11,24 @@ function Card(data){
             <div>
                 <div className = {styles.divTitle}>
                 <div className = {styles.title}>{data.name}</div>
-                </div>
-                <img className = {styles.img} src={data.image || imgDefault} alt="" />
                 <div className = {styles.score}>⛧⛧{data.spoonacularScore}⛧⛧</div>
+                </div>
+            <Link to = {`/details/${data.id}`}>
+                <button className = {styles.btninfo}>More Info!</button>
+            </Link>
+                <img className = {styles.img} src={data.image || imgDefault} alt="" />
                 
                 <div className = {styles.diettype}>{data.diets?.map((e) => {
+        
                     return (
-                        <ul key={e} className = {styles.ul}>
-                        <li key={e}> {e.name ? e.name : e} </li>
-                        </ul>
+                        
+                        <p className = {styles.p} key={e}> {e.name ? e.name : e} </p>
+                        
                     )
+                   
                 })} </div> 
                 
             </div>
-            <Link to = {`/details/${data.id}`}>
-                <button className = {styles.btninfo}>More Info</button>
-            </Link>
         </div>
         </div>
         

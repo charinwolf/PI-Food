@@ -1,0 +1,53 @@
+.container{
+    width: 53em;
+    height: 71em;
+    display: block;
+    overflow: hidden;
+    transition: max-width 3s;
+    font-family: 'Oswald', sans-serif;
+    border: solid 1px rgb(205, 90, 0);
+    border-radius: 4.4em;
+    margin: 3em auto;
+    background-color: #E60000;
+    box-shadow: -3px 3px 10px rgba(30, 30, 30, .4);
+    text-shadow: 0px 1px 3px rgba(255, 255, 255, .5);
+    color: white;
+    padding: 5px;
+}
+
+.img{
+    width: 39%;
+    height: 19em;
+    border-radius: 16em;
+    position: absolute;
+}
+
+.title{
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 25px;
+    width: 15em;
+}
+.score{
+    
+    font-size: 25px;
+    width: 15em;
+}
+
+.diettype{
+    font-size: 25px;
+    width: 15em; 
+}
+.summary{
+    font-size: 17px;
+    height: 15em;
+}
+
+.instructions{
+    font-size: 17px;
+    height: 10em;
+}
+
+.healthy {
+    font-size: 24px;
+    width: 15em;
+}

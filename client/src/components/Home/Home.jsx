@@ -42,24 +42,24 @@ function Home() {
         <div className = {styles.container}>
         <Navbar />
         <Filter filterOrder = {filterOrder} />
-            <Paged
-                recipesPerPage={recipesPerPage}
-                totalRecipes={totalRecipes}
-                paginate={paginate}
-            />
         <div className={styles.recipesCard}>
             {currentRecipes && currentRecipes.map((e) => {
                 return (
                     <Card
-                        key={e.id}
-                        id={e.id}
-                        name={e.name}
-                        image={e.image}
-                        spoonacularScore={e.spoonacularScore}
-                        diets={e.diets}
+                    key={e.id}
+                    id={e.id}
+                    name={e.name}
+                    image={e.image}
+                    spoonacularScore={e.spoonacularScore}
+                    diets={e.diets}
                     />
-                )
-            })}
+                    )
+                })}
+                <Paged
+                    recipesPerPage={recipesPerPage}
+                    totalRecipes={totalRecipes}
+                    paginate={paginate}
+                />
         </div>
     </div>
     )

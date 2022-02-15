@@ -1,20 +1,22 @@
 .pag {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    color: black;
+    display: flex;    
+    padding: 10px;    
 }
 
 .pag button{
-    background: none;
+    background: #FF8000;
     border: none;
-    color: black;
-    font-weight: 600;
+    color: white;
+    cursor: pointer;;
     font-size: 25px;
-    letter-spacing: 25px;
+    letter-spacing: 10px;
+    margin: 0 4px;
+    border-radius: 10px;
+    text-align: center;
+    
 }
 
-/*.item button:hover {
-    box-shadow: 0 50px 5px 0 rgba(0,0,0,0.24), 0 45px 50px 0 rgba(0,0,0,0.19);
-}*/
+.pag button:hover {
+    background-color: white;
+    color: #FF8000;
+}

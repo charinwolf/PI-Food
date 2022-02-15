@@ -2,21 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@1&display=swap');
 
 .container{
-    width: 26em;
-    height: 34em;
+    width: 24em;
+    height: 40em;
     display: block;
-  overflow: hidden;
-  transition: max-width 3s;
-  font-family: 'Oswald', sans-serif;
-  border: solid 1px rgb(205, 90, 0);
-  border-radius: 4.4em;
-  margin: 3em auto;
-  background-color: #E60000;
-  box-shadow: -3px 3px 10px rgba(30, 30, 30, .4);
-  text-shadow: 0px 1px 3px rgba(255, 255, 255, .5);
-  color: #190F00;
+    overflow: hidden;
+    transition: max-width 3s;
+    font-family: 'Oswald', sans-serif;
+    border: solid 1px rgb(205, 90, 0);
+    border-radius: 4.4em;
+    margin: 3em auto;
+    background-color: #E60000;
+    box-shadow: -3px 3px 10px rgba(30, 30, 30, .4);
+    text-shadow: 0px 1px 3px rgba(255, 255, 255, .5);
+    color: white;
+    padding: 5px;
 }
 
+.page{
+    margin: 25px
+}
 .divTitle{
     height: 5em;
     width: 23em;
@@ -28,6 +32,7 @@
 .title{
     font-family: 'Akaya Telivigala', cursive;
     font-size: 25px;
+    width: 13em;
    
 }
 
@@ -35,31 +40,50 @@
   width: 100%;
   height: 7em;
   min-height: 200px;
-  margin: 5px;
+  margin: 0px;
   padding: 0;
   border: none;
   background-size: cover;
   background-position: center center;
   display: block;
   float: left;
+  border-radius: 10px;
 }
 
 .score{
     font-family: 'Roboto Mono', monospace;
+    width: 20em;
+   
 }
 
-.ul{
-    height: 5em;
-    width: 23em;
-    margin: 25px;
+.p{
+    margin: 5px;
+    padding-top: 6px;
 }
 
 .diettype{
-    display: flex;
+    
     line-height: 1.5em;
-    list-style: circle;
-       
     font-family: 'Roboto Mono', monospace;
+    
+
 }
 
-.btninfo{}
+.btninfo{
+    margin-bottom: 25px;
+    width: 100%;
+    height: 50px;
+    background-color: orange;
+    border-radius: 5em;
+    border: none;
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
+    align-items: end;
+}
+
+.btninfo:hover {
+    background-color: white;
+    color: #FF8000;
+}
