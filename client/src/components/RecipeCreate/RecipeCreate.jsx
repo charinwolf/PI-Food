@@ -1,176 +1,190 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getDiet, postRecipe } from '../../Redux/actions';
 import { Link } from 'react-router-dom';
-import style from '../RecipeCreate/RecipeCreate.module.css';
+import styles from '../RecipeCreate/RecipeCreate.module.css';
 
 
-function NewRecipe(){
-    const dispatch = useDispatch()
+function RecipeCreate(){
     
-    //llamo a las dietas en el store
-    const dietsState = useSelector((state => state.diet))
-    
-    //Creo un estado interno para rellenar el form 
-    const [form, setForm] =  useState({
+ const dispatch = useDispatch();
 
-        name: "",
-        summary: "",
-        spoonacularScore: 0,
-        healthScore: 0,
-        instructions: "",
-        image: "",
-        diets: []
-    })
-    useEffect(() => {
-        dispatch(getDiet())
-    }, [dispatch]);
+ // Se crea el edo interno para llenar el formulario
+ const [form, setForm] = useState({
+     name: '',
+     summary: '',
+     spoonacularScore: '',
+     healthScore: '',
+     instructions: '',
+     image: '',
+     diets: []
+ })
 
-    //Handlers (manejador de eventos)
-    // evitamos recargar la página al activarse un evento(click o submit)
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    
-    // constante para llenar el formulario
-        const recipe = {
+ //Manejadores de Eventos
+ //manejador de eventos de los inputs
+ function handleChange(e) {
+     setForm({
+         ...form,
+         [e.target.name]: e.target.value
+     })
+ }
 
-        name: form.name,
-        summary: form.summary,
-        spoonacularScore: form.spoonacularScore,
-        healthScore: form.healthScore,
-        instructions: form.instructions,
-        image: form.image,
-        diets: form.diets
-    } 
+ //manejaor de eventos de los checkbox
+ function handleCheck(e) {
+     if (e.target.checked) {
+         setForm({
+             ...form,
+             diets: [...form.diets, e.target.value]
+         })
+     }
+ }
 
-    //validadores de errores
-    // if(!recipe.name) {
-    //     alert('A name is required!')
-    //     return
-    // }
-    // if(!recipe.summary){
-    //     alert('A summary is reqquired')
-    //     return
-    // }
-    // if(!recipe.instructions){
-    //     alert('Instructiosn are required')
-    //     return 
-    // }
-    // if(recipe.spoonacularScore > 100 || recipe.spoonacularScore < 0){
-    //     alert('The score must be between 0 and 100')
-    //     return
-    // }
-    
-    // Despacho la nueva receta
-    dispatch(postRecipe(recipe));
-    e.target.reset();
+ //manejador deeventos de envio del formulario
+ function handleSubmit(e) {
+     e.preventDefault();
 
-    //Seteo el estado el edo interno en vacio nuevamente
-    setForm({
-        name: "",
-        summary: "",
-        spoonacularScore: 0,
-        healthScore: 0,
-        instructions: "",
-        image: "",
-        diets: []
-    });
-
-    //finalizamos con un alert
-    alert('New recipe ceated successfully!')
-}
-
-    function handleCheck(e){
-        if (e.target.checked === true){
-            setForm({
-                ...form,
-                diets: [...form.diets, e.target.name],
-            })
-        }else {
-            setForm({
-                ...form,
-                diets: form.diets.filter((d) => d !== e.target.name )
-            })
-        }
-
+//Validador de campos
+     if (!form.name || !form.summary || form.spoonacularScore < 1 || form.healthScore < 1 || !form.instructions || !form.diets) {
+        alert("Debes llenar todos los campos para crear una nueva receta")
+        return
     }
 
-    return (
-        <div>
-            <div className = {style.container}>
-                <h1 className = {style.h1}>Create Recipe!</h1>
-                <Link to= '/home'>
-                    <button className = {style.btnHome}>Home</button>
-                </Link>
+    //despachamos a postRecipe el formulario lleno 
+     dispatch(postRecipe(form))
+     setForm({      //seteamos todo en blanco nuevamente
+         name: '',
+         summary: '',
+         spoonacularScore: '',
+         healthScore: '',
+         instructions: '',
+         image: '',
+         diets: []
+     })
+     alert(`${form.name} Creada!`)
+ }
 
-                <form className = {style.form} 
-                onChange = {(e) => handleCheck(e)} 
-                onSubmit = {(e) => handleSubmit(e)}>
+ useEffect(() => { 
+     dispatch(getDiet()) 
+    }, [dispatch]);
 
-                    <div className = {style.divForm}>
-                        <label>Name?</label>
-                        <input type="text"
-                        name='name'
-                        placeholder="Recipe's Name"
-                        defaultValue={form.name}
-                        />
-                    </div>
+ return (
+     <div className = {styles.container}>
+         <Link to='/home'><button >Home</button></Link>
+         <form  onSubmit={(e) => handleSubmit(e)} className = {styles.form}>
+             <div className = {styles.div} >
+                 <label className = {styles.label}>Name</label>
+                 <input 
+                     type='text'
+                     value={form.name}
+                     name='name'
+                     onChange={(e) => handleChange(e)}
+                 />
 
-                    <div className = {style.divForm}>
-                        <label>Summary?</label>
-                        <textarea type='text' 
-                        name='summary'
-                        placeholder='Summary!'
-                        defaultValue={form.summary}
-                        />
-                    </div>
-                    <div className = {style.divForm}>
-                        <label>Instructions</label>
-                        <textarea type="text"
-                        name='Instructions' 
-                        placeholder='How to do it!'
-                        defaultValue={form.instructions} 
-                        />
-                    </div>
+             </div>
+             <div className = {styles.div}>
+                 <label className = {styles.label}>summary</label>
+                 <textarea className = {styles.textarea}
+                     type='text'
+                     value={form.summary}
+                     name='summary'
+                     onChange={(e) => handleChange(e)} />
 
-                    <div className = {style.divForm}>
-                        <label>Score!</label>
-                        <input type="number" 
-                        name="Score"
-                        placeholder='Score'
-                        defaultValue={form.spoonacularScore}
-                         />
-                    </div>
-
-                    <div className = {style.divForm}>
-                        <label>Health Score</label>
-                        <input type="number" 
-                        name="Health"
-                        placeholder='Health Score'
-                        defaultValue={form.healthScore}
-                        />
-                    </div>
-
-                    <h4>Diets</h4>
-                    {dietsState && dietsState.map((d) => {
-                        return(
-                            <div>
-                                <label>{d.name}</label>
-                                <input type="checkbox"
-                                name={d.name} />
-                            </div>
-                        )
-                    })
-                    }
-                    <div>
-                        <button className = {style.formBtn} type = 'submit'>Crear!</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    )
+             </div>
+             <div className = {styles.div}>
+                 <label className = {styles.label}>spoonacularScore</label>
+                 <input
+                     type='number'
+                     value={form.spoonacularScore}
+                     name='spoonacularScore'
+                     onChange={(e) => handleChange(e)} />
+             </div>
+             <div className = {styles.div}>
+                 <label className = {styles.label}>Healthy Level</label>
+                 <input
+                     type='number'
+                     value={form.healthScore}
+                     name='healthScore'
+                     onChange={(e) => handleChange(e)} />
+             </div>
+             <div className = {styles.div}>
+                 <label className = {styles.label}>Instructions</label>
+                 <textarea className = {styles.textarea}
+                     type='text'
+                     value={form.instructions}
+                     name='instructions'
+                     onChange={(e) => handleChange(e)} />
+             </div>
+             <div className = {styles.div}>
+                 <label className = {styles.label}>Image</label>
+                 <input
+                     type='text'
+                     value={form.image}
+                     name='image'
+                     onChange={(e) => handleChange(e)} />
+             </div>
+             <div>
+                 <label className = {styles.label}>Diet type</label>
+                 <label ><input
+                     type='checkbox'
+                     name='Gluten Free'
+                     value='gluten free'
+                     onChange={(e) => handleCheck(e)}
+                 />Gluten Free</label>
+                 <label ><input
+                     type='checkbox'
+                     name='Dairy Free'
+                     value='dairy free'
+                     onChange={(e) => handleCheck(e)}
+                 />Dairy Free</label>
+                 <label ><input
+                     type='checkbox'
+                     name='Lacto Ovo Vegetarian'
+                     value='lacto ovo vegetarian'
+                     onChange={(e) => handleCheck(e)}
+                 /> Lacto Ovo V</label>
+                 <label ><input
+                     type='checkbox'
+                     name='Vegan'
+                     value='vegan'
+                     onChange={(e) => handleCheck(e)}
+                 />Vegan</label>
+                 <label ><input
+                     type='checkbox'
+                     name='Paleolithic'
+                     value='paleolithic'
+                     onChange={(e) => handleCheck(e)}
+                 />Paleolithic</label>
+                 <label ><input
+                     type='checkbox'
+                     name='Primal'
+                     value='primal'
+                     onChange={(e) => handleCheck(e)}
+                 />Primal</label>
+                 <label ><input
+                     type='checkbox'
+                     name='Pescatarian'
+                     value='pescatarian'
+                     onChange={(e) => handleCheck(e)}
+                 />Pescatarian</label>
+                 <label ><input
+                     type='checkbox'
+                     name='Fodmap Friendly'
+                     value='fodmap friendly'
+                     onChange={(e) => handleCheck(e)}
+                 />Fodmap Friendly</label>
+                 <label ><input
+                     type='checkbox'
+                     name='Whole 30'
+                     value='whole 30'
+                     onChange={(e) => handleCheck(e)}
+                 />Whole 30</label>
+             </div>
+             <button type='submit'>Create Recipe</button>
+         </form>
+     </div>
+ )
 }
 
-export default NewRecipe
+export default RecipeCreate

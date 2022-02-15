@@ -12,7 +12,7 @@ const postRecipe = async (req, res) => {
         
     } = req.body
 
-    if(!name || !summary) return res.send('A Name and a Summary must be enter')
+    //if(name === "" || summary === "") return res.send('A Name and a Summary must be enter')
     
     try {
          let newRecipe = await Recipe.create({
@@ -28,8 +28,6 @@ const postRecipe = async (req, res) => {
         })
         newRecipe.addDiet(dietDb)
         res.send('Recipe created Succssesfully') 
-
-
     }catch(err) {
         console.log(err)
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { filterDiet, filterName, filterScore } from '../../Redux/actions';
+import { filterDiet, filterName, filterScore, getRecipes } from '../../Redux/actions';
 
 
 function Filter({ filterOrder}){
@@ -22,8 +22,12 @@ function Filter({ filterOrder}){
         e.preventDefault();
         dispatch(filterDiet(e.target.value))
     }
-
-     
+    
+    function handleClick(e){
+        e.preventDefault()
+        dispatch(getRecipes())
+    }
+      
     return (
         <div>
             <select onChange={(e)=> handleOrder(e)}>
@@ -52,6 +56,8 @@ function Filter({ filterOrder}){
                 <option value="fodmap friendly">FODMAP FRIENDLY</option>
                 <option value="whole 30">WHOLE 30</option>
             </select>
+            <button onClick={(e) => { handleClick(e) } }>Reset!</button>
+
         </div>
     )
 }

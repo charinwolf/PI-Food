@@ -1,4 +1,44 @@
+.container{
+    background-image: url('https://previews.123rf.com/images/gow27/gow271603/gow27160300069/53766028-doodle-culinaire-et-la-cuisine-%C3%A9criture-des-ingr%C3%A9dients-alimentaires-et-des-outils-de-cuisine-ic%C3%B4ne-.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+ 
+}
+
 .form{
-    margin-top: 5%;
-    margin-left: 25%;
+    
+    color: white;
+    background-color: #FF7E00;;
+    width: 35em;
+    height: 25em;
+    margin-top: 8%;
+    margin-left: 28%;
+    
+    
+}
+
+.div{
+    margin: 10px 0;
+   
+    
+}
+
+.label{
+  
+    padding: 8px 10px;
+    display: inline-block;
+}
+
+.textarea{
+    width: 400px;
+  height: 100px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
 }

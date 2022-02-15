@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getRecipeByName } from '../../Redux/actions';
 import Card from '../Card/Card';
+import Navbar from '../Navbar/Navbar';
 
 function SearchBar(){
     const dispatch = useDispatch();
@@ -16,6 +17,8 @@ function SearchBar(){
     }, [dispatch, name])   
     
     return (
+        <>
+        <Navbar />
         <div>
             {searchRecipe && searchRecipe.map((e)=> {
                 return (
@@ -25,13 +28,13 @@ function SearchBar(){
                         name = {e.name}
                         image = {e.image}
                         spoonacularScore = {e.spoonacularScore}
-                        diet = {e.diet}                
+                        diets = {e.diets}                
                     />
                 )
             })}
         </div>
+   </> 
     )
-    
 }
 
 export default SearchBar;

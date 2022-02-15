@@ -5,7 +5,6 @@ const initialState = {
     recipeName: [],
     recipeId: [],
     diet:[],
-    postRecipe: null
 }
 
 function rootReducer(state= initialState, action){
@@ -32,8 +31,7 @@ function rootReducer(state= initialState, action){
             }
         case POST_RECIPE:
             return {
-                ...state,
-                postRecipe: action.payload
+                ...state
             }
 
         case FILTER_NAME:
