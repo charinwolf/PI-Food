@@ -1,6 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { filterDiet, filterName, filterScore, getRecipes } from '../../Redux/actions';
+import {Link} from 'react-router-dom'
+import styles from '../Filter/Filter.module.css'
 
 
 function Filter({ filterOrder}){
@@ -30,6 +32,8 @@ function Filter({ filterOrder}){
       
     return (
         <div>
+             <div>
+                </div>
             <select onChange={(e)=> handleOrder(e)}>
                 <option value = 'none' defaultValue >ORDER</option>
                 <option value="AZ">A TO Z</option>
@@ -57,7 +61,9 @@ function Filter({ filterOrder}){
                 <option value="whole 30">WHOLE 30</option>
             </select>
             <button onClick={(e) => { handleClick(e) } }>Reset!</button>
-
+            <Link to= '/post'>
+                <button className = {styles.btnNew}>¡New Recipe!</button>
+            </Link>
         </div>
     )
 }

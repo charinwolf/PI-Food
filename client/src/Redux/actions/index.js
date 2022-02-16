@@ -62,20 +62,7 @@ export function getDiet() {
 
     }
 }
-    //FUNCION ORIGINAL
-// export function postRecipe(recipe) {
-//     return (dispatch) => {
-//         axios.post(`http://localhost:3001/recipe`, recipe)
-//             .then(res => {
-//                 dispatch({
-//                     type: 'POST_RECIPE',
-//                     payload: res.data
-//                 })
-//             })
-//     }
-// }
 
-// FUNCION DE PRUEBA
 export const postRecipe = (data) => {
     return async () => {
       try {

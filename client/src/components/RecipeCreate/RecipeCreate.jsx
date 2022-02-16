@@ -3,9 +3,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getDiet, postRecipe } from '../../Redux/actions';
-import { Link } from 'react-router-dom';
 import styles from '../RecipeCreate/RecipeCreate.module.css';
-
+import Navbar from '../Navbar/Navbar';
 
 function RecipeCreate(){
     
@@ -70,10 +69,15 @@ function RecipeCreate(){
     }, [dispatch]);
 
  return (
-     <div className = {styles.container}>
-         <Link to='/home'><button >Home</button></Link>
+     <div  className = {styles.container}>
+         <Navbar />
+         
+         <div className = {styles.name}>New Recipe!</div>
+         
          <form  onSubmit={(e) => handleSubmit(e)} className = {styles.form}>
+             
              <div className = {styles.div} >
+                 
                  <label className = {styles.label}>Name</label>
                  <input 
                      type='text'
@@ -84,16 +88,7 @@ function RecipeCreate(){
 
              </div>
              <div className = {styles.div}>
-                 <label className = {styles.label}>summary</label>
-                 <textarea className = {styles.textarea}
-                     type='text'
-                     value={form.summary}
-                     name='summary'
-                     onChange={(e) => handleChange(e)} />
-
-             </div>
-             <div className = {styles.div}>
-                 <label className = {styles.label}>spoonacularScore</label>
+                 <label className = {styles.label}>Score</label>
                  <input
                      type='number'
                      value={form.spoonacularScore}
@@ -109,14 +104,6 @@ function RecipeCreate(){
                      onChange={(e) => handleChange(e)} />
              </div>
              <div className = {styles.div}>
-                 <label className = {styles.label}>Instructions</label>
-                 <textarea className = {styles.textarea}
-                     type='text'
-                     value={form.instructions}
-                     name='instructions'
-                     onChange={(e) => handleChange(e)} />
-             </div>
-             <div className = {styles.div}>
                  <label className = {styles.label}>Image</label>
                  <input
                      type='text'
@@ -124,7 +111,24 @@ function RecipeCreate(){
                      name='image'
                      onChange={(e) => handleChange(e)} />
              </div>
-             <div>
+             <div className = {styles.div}>
+                 <label className = {styles.label}>Summary</label>
+                 <textarea className = {styles.textarea}
+                     type='text'
+                     value={form.summary}
+                     name='summary'
+                     onChange={(e) => handleChange(e)} />
+
+             </div>
+             <div className = {styles.div}>
+                 <label className = {styles.label}>Instructions</label>
+                 <textarea className = {styles.textarea}
+                     type='text'
+                     value={form.instructions}
+                     name='instructions'
+                     onChange={(e) => handleChange(e)} />
+             </div>
+             <div className = {styles.diet}>
                  <label className = {styles.label}>Diet type</label>
                  <label ><input
                      type='checkbox'
@@ -181,9 +185,11 @@ function RecipeCreate(){
                      onChange={(e) => handleCheck(e)}
                  />Whole 30</label>
              </div>
-             <button type='submit'>Create Recipe</button>
+             <button type='submit' className = {styles.btnnew}>Create Recipe</button>
          </form>
+         
      </div>
+     
  )
 }
 

@@ -35,14 +35,16 @@ function Detail(){
                         <h5 key={e}> {e.name ? e.name: e} </h5> 
                     )
                 })} </div>
-            <div className= {styles.summary}>Summary: {detail[0] ? detail[0].summary : detail.summary} </div>
-            <div className= {styles.instructions}>Instructions: {detail[0] ? detail[0].instructions : detail.instructions} </div>
+                <h2 className = {styles.h2}>Summary</h2>
+            <div className= {styles.summary}> {detail[0] ?  detail[0].summary.replace(/<[^>]*>?/g, '') : detail.summary} </div>
+                <h2 className = {styles.h2}>Instructions</h2>
+            <div className= {styles.instructions}> {detail[0] ? detail[0].instructions : detail.instructions} </div>
             
             
             </div>
             )}
              <Link to= '/home'>
-                    <button className = {styles.btnHome}>Home</button>
+                    <button className = {styles.btnHome}>Go Home...</button>
                 </Link>
         </div>
     )

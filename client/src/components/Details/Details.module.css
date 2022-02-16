@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Shizuru&display=swap');
+
+.page{
+    background-image: url('https://previews.123rf.com/images/gow27/gow271603/gow27160300069/53766028-doodle-culinaire-et-la-cuisine-%C3%A9criture-des-ingr%C3%A9dients-alimentaires-et-des-outils-de-cuisine-ic%C3%B4ne-.jpg');
+}
+
 .container{
     width: 53em;
     height: 71em;
     display: block;
     overflow: hidden;
     transition: max-width 3s;
-    font-family: 'Oswald', sans-serif;
     border: solid 1px rgb(205, 90, 0);
     border-radius: 4.4em;
     margin: 3em auto;
@@ -16,7 +21,7 @@
 }
 
 .img{
-    width: 39%;
+    width: 19em;
     height: 19em;
     border-radius: 16em;
     position: absolute;
@@ -24,30 +29,51 @@
 
 .title{
     font-family: 'Akaya Telivigala', cursive;
-    font-size: 25px;
+    font-size: 3em;
     width: 15em;
 }
+
+.h2{
+    font-family: 'Akaya Telivigala'; 
+    font-size: 2em;
+    font-weight: lighter;
+    
+}
+
 .score{
     
     font-size: 25px;
-    width: 15em;
+    width: 28em;
 }
 
 .diettype{
     font-size: 25px;
     width: 15em; 
 }
-.summary{
-    font-size: 17px;
-    height: 15em;
-}
 
-.instructions{
-    font-size: 17px;
-    height: 10em;
-}
 
 .healthy {
     font-size: 24px;
-    width: 15em;
+    width: 29em;
+}
+
+.btnHome{
+    margin-bottom: 25px;
+    width: 40%;
+    height: 50px;
+    background-color: #FF8000;
+    border-radius: 5em;
+    border: none;
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
+    align-items: end;
+    transition-duration: 0.4s;
+}
+
+
+.btnHome:hover {
+    background-color: white;
+    color: #FF8000;
 }

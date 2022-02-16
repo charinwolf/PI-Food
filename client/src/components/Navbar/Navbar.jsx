@@ -20,11 +20,6 @@ function Navbar(){
                     <h2>Your Recipe!</h2>
                 </Link>
                 <div>
-                    <Link to= '/post'>
-                        <button className = {styles.btnNew}>¡New Recipe!</button>
-                    </Link>
-                </div>
-                <div>
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
                 <form className={styles.form}onSubmit = {(e) => handleSubmit(e)}>
                     
@@ -42,6 +37,7 @@ function Navbar(){
                 </form>
                 </div>
             </nav>
+               
         </div>
     )
 }
