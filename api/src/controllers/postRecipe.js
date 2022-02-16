@@ -12,8 +12,7 @@ const postRecipe = async (req, res) => {
         
     } = req.body
 
-    //if(name === "" || summary === "") return res.send('A Name and a Summary must be enter')
-    
+     
     try {
          let newRecipe = await Recipe.create({
             name,
